@@ -116,12 +116,13 @@ Rôle :
 
 ## 5. Répartition du travail
 
-| Membre     | Rôle                             |
-| ---------- | -------------------------------- |
-| Nathan     | Backend, RAG, IA, API            |
-| Trésor     | Frontend, UI/UX, intégration API |
-| Personne 3 | Données & tests                  |
-| Personne 4 | Rapport & documentation          |
+| Membre        | Rôle                             | Responsabilité principale  |
+| ------------- | -------------------------------- | -------------------------- |
+| Nathan        | Backend, RAG, IA, API            | Cœur technique             |
+| Trésor        | Frontend, UI/UX, intégration API | Interface utilisateur      |
+| Pierre-Thyrel | Données & tests                  | Jeux de données & éval     |
+| Lina          | Rapport & documentation          | Documentation & soutenance |
+
 
 ---
 
