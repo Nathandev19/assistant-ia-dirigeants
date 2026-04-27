@@ -1,11 +1,12 @@
-## Assistant IA pour dirigeants
+# Assistant IA pour dirigeants
 
 ---
 
 ## 1. Présentation du projet
 
 Ce projet consiste à développer un assistant conversationnel intelligent destiné à des dirigeants d’entreprise.
-L’assistant est capable de répondre à des questions stratégiques et opérationnelles en langage naturel en s’appuyant sur des documents internes.
+
+L’assistant répond à des questions stratégiques et opérationnelles en langage naturel en s’appuyant sur des documents internes.
 
 Le système repose sur une architecture **RAG (Retrieval Augmented Generation)** permettant d’enrichir les réponses de l’IA avec des données réelles issues de l’organisation.
 
@@ -16,7 +17,7 @@ Le système repose sur une architecture **RAG (Retrieval Augmented Generation)**
 * Permettre l’interrogation de documents internes (PDF, DOCX, CSV)
 * Fournir des réponses contextualisées et fiables
 * Simuler un assistant décisionnel pour dirigeants
-* Offrir une interface simple et professionnelle type SaaS
+* Offrir une interface web simple de type SaaS
 
 ---
 
@@ -33,15 +34,15 @@ Technologies :
 
 Rôle :
 
-* exposition des routes API
-* gestion future du RAG
+* gestion des routes API
+* traitement futur du RAG
 * communication avec le frontend
 
-Endpoints :
+Endpoints (prévisionnels / en cours) :
 
-* `/chat` (prévu)
-* `/upload` (prévu)
-* `/history` (prévu)
+* `/chat`
+* `/upload`
+* `/history`
 
 ---
 
@@ -49,17 +50,18 @@ Endpoints :
 
 Technologies :
 
-* HTML / CSS
-* JavaScript (en cours)
+* HTML
+* CSS
+* JavaScript (à venir)
 * Flask templates
 
 Structure actuelle :
 
-```plaintext
+```plaintext id="frontend_struct"
 templates/
 ├── base.html
 ├── index.html
-├── about.html (non utilisé)
+├── about.html (non utilisé pour le moment)
 
 static/
 ├── css/
@@ -76,10 +78,12 @@ static/
 
 Rôle :
 
-* interface utilisateur type chat IA
+* interface utilisateur du chat IA
 * affichage des messages
-* communication avec backend (en cours d’implémentation)
-* UX type SaaS
+* intégration future avec l’API backend
+* UX en cours de développement
+
+ **Remarque : l’interface est fonctionnelle mais encore en cours d’amélioration (UI/UX non finalisée).**
 
 ---
 
@@ -88,30 +92,30 @@ Rôle :
 ### Backend (en développement)
 
 * ingestion de documents
+* découpage en chunks
 * embeddings
 * recherche sémantique
 * génération de réponses IA
-* gestion des conversations
 
 ---
 
-### Frontend (en cours)
+### Frontend (en cours de développement)
 
-* interface de chat fonctionnelle (structure OK)
+* interface de chat fonctionnelle (structure en place)
 * affichage des messages utilisateur / assistant
-* design responsive type SaaS
-* connexion API Flask (à venir)
+* layout web de type SaaS basique
+* connexion API Flask (non encore implémentée)
 
 ---
 
 ## 5. Répartition du travail
 
-| Membre        | Rôle             | Responsabilité principale |
-| ------------- | ---------------- | ------------------------- |
-| Nathan        | Backend, IA, RAG | Cœur technique            |
-| Trésor        | Frontend, UI/UX  | Interface utilisateur     |
-| Pierre-Thyrel | Données & tests  | Jeux de données & éval    |
-| Lina          | Documentation    | Rapport & soutenance      |
+| Membre        | Rôle             | Responsabilité principale    |
+| ------------- | ---------------- | ---------------------------- |
+| Nathan        | Backend, IA, RAG | Cœur technique               |
+| Trésor        | Frontend, UI/UX  | Interface utilisateur        |
+| Pierre-Thyrel | Données & tests  | Jeux de données & évaluation |
+| Lina          | Documentation    | Rapport & soutenance         |
 
 ---
 
@@ -125,25 +129,26 @@ Rôle :
 
 ### Frontend
 
-* Structure HTML/CSS terminée
-* Interface chat affichée
+* Structure HTML/CSS mise en place
+* Interface de chat affichée
 * Design de base fonctionnel
-* JavaScript pas encore implémenté
+* JavaScript non encore implémenté
+* UI encore perfectible (améliorations prévues)
 
 ---
 
 ## 7. Prochaines étapes
 
-### Frontend (priorité)
+### Frontend
 
 * Implémentation `chat.js`
-* Connexion API (`/chat`)
+* Connexion API `/chat`
 * Affichage dynamique des messages
-* Upload documents (UI + backend)
+* Amélioration UI/UX
 
 ### Backend
 
-* Finalisation endpoints API
+* Finalisation endpoints
 * Intégration RAG complète
 
 ---
