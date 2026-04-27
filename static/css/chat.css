@@ -1,0 +1,84 @@
+#chat-box {
+max-width: 700px;
+margin: auto;
+background: white;
+border-radius: 12px;
+padding: 15px;
+height: 80vh;
+display: flex;
+flex-direction: column;
+box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+overflow: hidden;
+
+
+}
+
+/* zone messages */
+#messages {
+flex: 1;
+overflow-y: auto;
+padding: 10px;
+display: flex;
+flex-direction: column;
+gap: 10px;
+scroll-behavior: smooth;
+
+}
+
+/* messages */
+.message {
+padding: 10px 12px;
+border-radius: 12px;
+max-width: 70%;
+word-wrap: break-word;
+font-size: 14px;
+line-height: 1.4;
+}
+
+/* utilisateur */
+.user {
+background-color: #007bff;
+color: white;
+align-self: flex-end;
+border-bottom-right-radius: 4px;
+}
+
+/* bot */
+.bot {
+background-color: #e9ecef;
+color: #111;
+align-self: flex-start;
+border-bottom-left-radius: 4px;
+}
+
+/* zone input */
+#input-area {
+display: flex;
+gap: 10px;
+padding-top: 10px;
+border-top: 1px solid #eee;
+}
+
+/* input */
+#user-input {
+flex: 1;
+padding: 10px 12px;
+border-radius: 8px;
+border: 1px solid #ccc;
+outline: none;
+}
+
+/* bouton */
+button {
+padding: 10px 15px;
+border: none;
+background-color: #111;
+color: white;
+border-radius: 8px;
+cursor: pointer;
+transition: 0.2s;
+}
+
+button:hover {
+background-color: #333;
+}
