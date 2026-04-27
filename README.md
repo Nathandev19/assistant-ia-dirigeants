@@ -1,4 +1,6 @@
-# Assistant IA pour dirigeants
+## Assistant IA pour dirigeants
+
+---
 
 ## 1. Présentation du projet
 
@@ -20,34 +22,26 @@ Le système repose sur une architecture **RAG (Retrieval Augmented Generation)**
 
 ## 3. Architecture du projet
 
-### Backend (Nathan)
+### Backend
 
 Technologies :
 
 * Python
 * Flask
 * OpenAI API
-* ChromaDB / FAISS (vector database)
-
-Modules principaux :
-
-* `app.py` : serveur principal Flask
-* `modules/` : logique métier (RAG, embeddings, traitement)
-* `vectorstore/` : stockage des embeddings
-* `data/` : documents sources
-* `tests/` : tests backend
-
-Endpoints :
-
-* `/chat` : conversation avec l’IA
-* `/upload` : ajout de documents
-* `/history` : historique des échanges
+* ChromaDB / FAISS
 
 Rôle :
 
-* traitement des documents
-* génération des embeddings
-* interaction avec le modèle IA
+* exposition des routes API
+* gestion future du RAG
+* communication avec le frontend
+
+Endpoints :
+
+* `/chat` (prévu)
+* `/upload` (prévu)
+* `/history` (prévu)
 
 ---
 
@@ -55,16 +49,17 @@ Rôle :
 
 Technologies :
 
-* HTML / CSS / JavaScript
-* Flask templates (intégré backend)
+* HTML / CSS
+* JavaScript (en cours)
+* Flask templates
 
-Structure :
+Structure actuelle :
 
 ```plaintext
 templates/
 ├── base.html
 ├── index.html
-├── about.html
+├── about.html (non utilisé)
 
 static/
 ├── css/
@@ -73,56 +68,50 @@ static/
 │
 ├── js/
 │   ├── app.js
-│   ├── chat.js
-│   ├── api.js
+│   ├── chat.js (à implémenter)
+│   ├── api.js (à implémenter)
 │   ├── ui.js
-│   ├── upload.js
-
-assets/
+│   ├── upload.js (à implémenter)
 ```
 
 Rôle :
 
-* interface utilisateur
-* expérience de chat
-* communication avec l’API backend
-* affichage des réponses et sources
+* interface utilisateur type chat IA
+* affichage des messages
+* communication avec backend (en cours d’implémentation)
+* UX type SaaS
 
 ---
 
 ## 4. Fonctionnalités principales
 
-### Backend
+### Backend (en développement)
 
 * ingestion de documents
-* découpage en chunks
-* vectorisation (embeddings)
+* embeddings
 * recherche sémantique
-* génération de réponses via LLM
+* génération de réponses IA
 * gestion des conversations
 
 ---
 
-### Frontend
+### Frontend (en cours)
 
-* interface de chat type assistant IA
+* interface de chat fonctionnelle (structure OK)
 * affichage des messages utilisateur / assistant
-* connexion API Flask (`/chat`, `/upload`)
-* upload de documents
-* affichage des sources utilisées
-* design responsive et professionnel
+* design responsive type SaaS
+* connexion API Flask (à venir)
 
 ---
 
 ## 5. Répartition du travail
 
-| Membre        | Rôle                             | Responsabilité principale  |
-| ------------- | -------------------------------- | -------------------------- |
-| Nathan        | Backend, RAG, IA, API            | Cœur technique             |
-| Trésor        | Frontend, UI/UX, intégration API | Interface utilisateur      |
-| Pierre-Thyrel | Données & tests                  | Jeux de données & éval     |
-| Lina          | Rapport & documentation          | Documentation & soutenance |
-
+| Membre        | Rôle             | Responsabilité principale |
+| ------------- | ---------------- | ------------------------- |
+| Nathan        | Backend, IA, RAG | Cœur technique            |
+| Trésor        | Frontend, UI/UX  | Interface utilisateur     |
+| Pierre-Thyrel | Données & tests  | Jeux de données & éval    |
+| Lina          | Documentation    | Rapport & soutenance      |
 
 ---
 
@@ -130,28 +119,32 @@ Rôle :
 
 ### Backend
 
-* Structure complète en place
-* API fonctionnelle
-* RAG en cours / opérationnel
+* Structure Flask en place
+* Serveur fonctionnel
+* API en cours de développement
 
 ### Frontend
 
-* Architecture mise en place
-* Dossiers créés
-* Fichiers JS et CSS structurés
-* Interface non encore implémentée
+* Structure HTML/CSS terminée
+* Interface chat affichée
+* Design de base fonctionnel
+* JavaScript pas encore implémenté
 
 ---
 
-## 7. Prochaines étapes (Frontend)
+## 7. Prochaines étapes
 
-* Construction de `base.html`
-* Création de l’interface `index.html` (chat)
-* Implémentation `api.js` (connexion backend)
-* Logique de chat (`chat.js`)
-* Affichage UI (`ui.js`)
-* Module upload (`upload.js`)
-* Amélioration UX (design SaaS)
+### Frontend (priorité)
+
+* Implémentation `chat.js`
+* Connexion API (`/chat`)
+* Affichage dynamique des messages
+* Upload documents (UI + backend)
+
+### Backend
+
+* Finalisation endpoints API
+* Intégration RAG complète
 
 ---
 
@@ -173,7 +166,4 @@ Le projet suit une architecture modulaire permettant une séparation claire entr
 * logique IA (backend)
 * interface utilisateur (frontend)
 * données et tests
-
----
-
 
