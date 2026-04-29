@@ -36,7 +36,7 @@ Rôle :
 
 * gestion des routes API
 * communication avec le frontend
-* intégration future de l’IA (OpenAI)
+* intégration de l’IA (OpenAI)
 * mise en place du RAG
 
 Endpoints (prévisionnels / en cours) :
@@ -75,7 +75,7 @@ static/
 │   ├── api.js (à implémenter)
 │   ├── ui.js
 │   ├── upload.js (à implémenter)
-````
+```
 
 Rôle :
 
@@ -83,9 +83,10 @@ Rôle :
 * gestion des interactions utilisateur
 * affichage dynamique des messages
 * intégration avec l’API backend (`/chat`)
+* participation à l’intégration IA (appel simple OpenAI + logique conversationnelle basique)
 * amélioration UX (chat fluide type SaaS)
 
-**Remarque : l’interface est fonctionnelle et interactive, avec un chat dynamique déjà opérationnel côté frontend.**
+**Remarque : l’interface est déjà fonctionnelle et interactive, avec un chat dynamique opérationnel côté frontend.**
 
 ---
 
@@ -115,12 +116,12 @@ Rôle :
 
 ## 5. Répartition du travail
 
-| Membre        | Rôle             | Responsabilité principale             |
-| ------------- | ---------------- | ------------------------------------- |
-| Nathan        | Backend, IA, RAG | API, OpenAI, logique IA, architecture |
-| Trésor        | Frontend, UI/UX  | Interface, JS, UX, intégration API    |
-| Pierre-Thyrel | Données & tests  | Jeux de données & évaluation          |
-| Lina          | Documentation    | Rapport & soutenance                  |
+| Membre        | Rôle                            | Responsabilité principale                               |
+| ------------- | ------------------------------- | ------------------------------------------------------- |
+| Nathan        | Backend, IA, RAG                | API, logique IA avancée, RAG, architecture              |
+| Trésor        | Frontend, UI/UX, intégration IA | Interface, UX, communication API, intégration IA simple |
+| Pierre-Thyrel | Données & tests                 | Jeux de données & évaluation                            |
+| Lina          | Documentation                   | Rapport & soutenance                                    |
 
 ---
 
@@ -186,11 +187,8 @@ Le projet suit une architecture modulaire avec séparation claire :
 
 Le projet est actuellement en phase :
 
-> MVP frontend fonctionnel + backend en cours
+> 🟡 MVP frontend fonctionnel + backend en cours
 
 Le chat est entièrement fonctionnel côté interface, avec une logique JavaScript opérationnelle.
 
 La prochaine étape consiste à connecter le frontend au backend, puis à intégrer l’intelligence artificielle réelle (OpenAI).
-
-
-
