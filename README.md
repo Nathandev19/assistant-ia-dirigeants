@@ -6,9 +6,9 @@
 
 Ce projet consiste à développer un assistant conversationnel intelligent destiné à des dirigeants d’entreprise.
 
-L’assistant répond à des questions stratégiques et opérationnelles en langage naturel en s’appuyant sur des documents internes.
+L’assistant répond à des questions stratégiques et opérationnelles en langage naturel, en s’appuyant à terme sur des documents internes.
 
-Le système repose sur une architecture **RAG (Retrieval Augmented Generation)** permettant d’enrichir les réponses de l’IA avec des données réelles issues de l’organisation.
+Le système reposera sur une architecture **RAG (Retrieval Augmented Generation)** afin d’enrichir les réponses avec des données réelles issues de l’organisation.
 
 ---
 
@@ -17,26 +17,27 @@ Le système repose sur une architecture **RAG (Retrieval Augmented Generation)**
 * Permettre l’interrogation de documents internes (PDF, DOCX, CSV)
 * Fournir des réponses contextualisées et fiables
 * Simuler un assistant décisionnel pour dirigeants
-* Offrir une interface web simple de type SaaS
+* Offrir une interface web simple de type SaaS (type ChatGPT)
 
 ---
 
 ## 3. Architecture du projet
 
-### Backend
+### Backend (Nathan)
 
 Technologies :
 
 * Python
 * Flask
 * OpenAI API
-* ChromaDB / FAISS
+* ChromaDB / FAISS (prévu)
 
 Rôle :
 
 * gestion des routes API
-* traitement futur du RAG
 * communication avec le frontend
+* intégration future de l’IA (OpenAI)
+* mise en place du RAG
 
 Endpoints (prévisionnels / en cours) :
 
@@ -52,16 +53,16 @@ Technologies :
 
 * HTML
 * CSS
-* JavaScript (à venir)
+* JavaScript
 * Flask templates
 
 Structure actuelle :
 
-```plaintext id="frontend_struct"
+```plaintext
 templates/
 ├── base.html
 ├── index.html
-├── about.html (non utilisé pour le moment)
+├── about.html (non utilisé)
 
 static/
 ├── css/
@@ -70,20 +71,21 @@ static/
 │
 ├── js/
 │   ├── app.js
-│   ├── chat.js (à implémenter)
+│   ├── chat.js
 │   ├── api.js (à implémenter)
 │   ├── ui.js
 │   ├── upload.js (à implémenter)
-```
+````
 
 Rôle :
 
 * interface utilisateur du chat IA
-* affichage des messages
-* intégration future avec l’API backend
-* UX en cours de développement
+* gestion des interactions utilisateur
+* affichage dynamique des messages
+* intégration avec l’API backend (`/chat`)
+* amélioration UX (chat fluide type SaaS)
 
- **Remarque : l’interface est fonctionnelle mais encore en cours d’amélioration (UI/UX non finalisée).**
+**Remarque : l’interface est fonctionnelle et interactive, avec un chat dynamique déjà opérationnel côté frontend.**
 
 ---
 
@@ -96,26 +98,29 @@ Rôle :
 * embeddings
 * recherche sémantique
 * génération de réponses IA
+* endpoint `/chat` pour communication frontend
 
 ---
 
 ### Frontend (en cours de développement)
 
-* interface de chat fonctionnelle (structure en place)
-* affichage des messages utilisateur / assistant
-* layout web de type SaaS basique
-* connexion API Flask (non encore implémentée)
+* interface de chat fonctionnelle
+* affichage dynamique des messages utilisateur / assistant
+* gestion des événements (click, Enter)
+* scroll automatique du chat
+* design type SaaS (UI améliorée)
+* préparation à la connexion API (`fetch /chat`)
 
 ---
 
 ## 5. Répartition du travail
 
-| Membre        | Rôle             | Responsabilité principale    |
-| ------------- | ---------------- | ---------------------------- |
-| Nathan        | Backend, IA, RAG | Cœur technique               |
-| Trésor        | Frontend, UI/UX  | Interface utilisateur        |
-| Pierre-Thyrel | Données & tests  | Jeux de données & évaluation |
-| Lina          | Documentation    | Rapport & soutenance         |
+| Membre        | Rôle             | Responsabilité principale             |
+| ------------- | ---------------- | ------------------------------------- |
+| Nathan        | Backend, IA, RAG | API, OpenAI, logique IA, architecture |
+| Trésor        | Frontend, UI/UX  | Interface, JS, UX, intégration API    |
+| Pierre-Thyrel | Données & tests  | Jeux de données & évaluation          |
+| Lina          | Documentation    | Rapport & soutenance                  |
 
 ---
 
@@ -126,14 +131,16 @@ Rôle :
 * Structure Flask en place
 * Serveur fonctionnel
 * API en cours de développement
+* IA non encore connectée
 
 ### Frontend
 
-* Structure HTML/CSS mise en place
-* Interface de chat affichée
-* Design de base fonctionnel
-* JavaScript non encore implémenté
-* UI encore perfectible (améliorations prévues)
+* Structure HTML/CSS complète
+* Interface de chat opérationnelle
+* UI améliorée (style SaaS)
+* JavaScript implémenté (chat dynamique fonctionnel)
+* simulation de réponse (mode local)
+* prêt pour intégration avec backend (`/chat`)
 
 ---
 
@@ -141,15 +148,16 @@ Rôle :
 
 ### Frontend
 
-* Implémentation `chat.js`
-* Connexion API `/chat`
-* Affichage dynamique des messages
-* Amélioration UI/UX
+* connexion API `/chat` via `fetch`
+* affichage des réponses backend
+* amélioration UX (loading, typing indicator)
+* structuration JS (`api.js`, `ui.js`)
 
 ### Backend
 
-* Finalisation endpoints
-* Intégration RAG complète
+* finalisation endpoint `/chat`
+* intégration OpenAI
+* mise en place du RAG (ChromaDB / FAISS)
 
 ---
 
@@ -166,9 +174,23 @@ Rôle :
 
 ## 9. Remarque
 
-Le projet suit une architecture modulaire permettant une séparation claire entre :
+Le projet suit une architecture modulaire avec séparation claire :
 
-* logique IA (backend)
-* interface utilisateur (frontend)
-* données et tests
+* logique IA → backend
+* interface utilisateur → frontend
+* communication via API REST (`/chat`)
+
+---
+
+## 10. État actuel du projet
+
+Le projet est actuellement en phase :
+
+> MVP frontend fonctionnel + backend en cours
+
+Le chat est entièrement fonctionnel côté interface, avec une logique JavaScript opérationnelle.
+
+La prochaine étape consiste à connecter le frontend au backend, puis à intégrer l’intelligence artificielle réelle (OpenAI).
+
+
 

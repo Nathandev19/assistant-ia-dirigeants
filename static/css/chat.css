@@ -5,11 +5,7 @@
     background: white;
     border-radius: 12px;
 
-    padding: 15px;
-
-    /* changement important */
     height: calc(100vh - 120px);
-    max-height: 600px;
 
     display: flex;
     flex-direction: column;
@@ -18,7 +14,9 @@
     overflow: hidden;
 }
 
-/* messages */
+/* =========================
+   MESSAGES AREA
+========================= */
 #messages {
     flex: 1;
     overflow-y: auto;
@@ -31,17 +29,40 @@
     scroll-behavior: smooth;
 }
 
-/* message */
+/* =========================
+   MESSAGE BASE
+========================= */
 .message {
-    padding: 10px 12px;
-    border-radius: 12px;
+    padding: 10px 14px;
+    border-radius: 14px;
     max-width: 70%;
     word-wrap: break-word;
     font-size: 14px;
     line-height: 1.4;
+
+    /* animation simple */
+    opacity: 0;
+    transform: translateY(6px);
+    animation: fadeIn 0.2s ease forwards;
 }
 
-/* user */
+/* animation apparition */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* effet hover léger */
+.message:hover {
+    filter: brightness(0.98);
+    transition: 0.2s;
+}
+
+/* =========================
+   USER MESSAGE
+========================= */
 .user {
     background-color: #007bff;
     color: white;
@@ -49,7 +70,9 @@
     border-bottom-right-radius: 4px;
 }
 
-/* bot */
+/* =========================
+   BOT MESSAGE
+========================= */
 .bot {
     background-color: #e9ecef;
     color: #111;
@@ -57,32 +80,57 @@
     border-bottom-left-radius: 4px;
 }
 
-/* input */
+/* =========================
+   INPUT AREA (FIXÉ EN BAS)
+========================= */
 #input-area {
     display: flex;
     gap: 10px;
-    padding-top: 10px;
+    padding: 12px;
+
     border-top: 1px solid #eee;
+    background: white;
+
+    position: sticky;
+    bottom: 0;
 }
 
+/* =========================
+   INPUT
+========================= */
 #user-input {
     flex: 1;
-    padding: 10px 12px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
     outline: none;
+    font-size: 14px;
+    transition: all 0.2s ease;
 }
 
-button {
-    padding: 10px 15px;
+/* focus propre */
+#user-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+}
+
+/* =========================
+   BUTTON
+========================= */
+#send-btn {
+    padding: 10px 16px;
     border: none;
     background-color: #111;
     color: white;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: 0.2s;
+    font-weight: 500;
+
+    transition: all 0.2s ease;
 }
 
-button:hover {
+/* hover button */
+#send-btn:hover {
     background-color: #333;
+    transform: translateY(-1px);
 }
