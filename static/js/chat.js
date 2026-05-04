@@ -13,20 +13,46 @@ document.addEventListener("DOMContentLoaded", () => {
         messages.scrollTop = messages.scrollHeight;
     }
 
-    function sendMessage() {
+    async function sendMessageToAPI(message) {
+        try {
+            const response = await fetch("/chat", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ message: message })
+            });
+
+            const data = await response.json();
+            return data.response;
+
+        } catch (error) {
+            console.error("Erreur API :", error);
+            return "Erreur serveur...";
+        }
+    }
+
+    async function sendMessage() {
         const text = input.value.trim();
 
         if (!text) return;
 
-        // message user
+        // message utilisateur
         addMessage(text, "user");
 
-        // réponse fake bot
-        setTimeout(() => {
-            addMessage("Réponse de l'assistant", "bot");
-        }, 500);
+        // message loading
+        const loadingMsg = document.createElement("div");
+        loadingMsg.classList.add("message", "bot");
+        loadingMsg.textContent = "Assistant est en train d’écrire...";
+        messages.appendChild(loadingMsg);
+        messages.scrollTop = messages.scrollHeight;
 
         input.value = "";
+
+        // appel API
+        const botResponse = await sendMessageToAPI(text);
+
+        loadingMsg.textContent = botResponse;
     }
 
     button.addEventListener("click", sendMessage);
