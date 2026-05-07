@@ -1,52 +1,42 @@
+/* CONTAINER PRINCIPAL DU CHAT */
 #chat-box {
     max-width: 700px;
     margin: 30px auto;
-
-    background: white;
-    border-radius: 12px;
-
+    background: #fff;
+    border-radius: 14px;
     height: calc(100vh - 120px);
-
     display: flex;
     flex-direction: column;
-
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     overflow: hidden;
+    border: 1px solid #eee;
 }
 
-/* =========================
-   MESSAGES AREA
-========================= */
+/* ZONE DES MESSAGES */
 #messages {
     flex: 1;
     overflow-y: auto;
-    padding: 10px;
-
+    padding: 14px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-
     scroll-behavior: smooth;
 }
 
-/* =========================
-   MESSAGE BASE
-========================= */
+/* STYLE DE BASE D'UN MESSAGE */
 .message {
-    padding: 10px 14px;
-    border-radius: 14px;
-    max-width: 70%;
+    padding: 8px 12px;
+    border-radius: 12px;
+    max-width: 75%;
     word-wrap: break-word;
-    font-size: 14px;
+    font-size: 13.5px;
     line-height: 1.4;
-
-    /* animation simple */
     opacity: 0;
     transform: translateY(6px);
     animation: fadeIn 0.2s ease forwards;
 }
 
-/* animation apparition */
+/* ANIMATION APPARITION MESSAGE */
 @keyframes fadeIn {
     to {
         opacity: 1;
@@ -54,82 +44,106 @@
     }
 }
 
-/* effet hover léger */
-.message:hover {
-    filter: brightness(0.98);
-    transition: 0.2s;
-}
-
-/* =========================
-   USER MESSAGE
-========================= */
+/* MESSAGE UTILISATEUR */
 .user {
     background-color: #007bff;
     color: white;
     align-self: flex-end;
-    border-bottom-right-radius: 4px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 12px;
 }
 
-/* =========================
-   BOT MESSAGE
-========================= */
+/* MESSAGE BOT / IA */
 .bot {
-    background-color: #e9ecef;
+    background-color: #f1f3f5;
     color: #111;
     align-self: flex-start;
-    border-bottom-left-radius: 4px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 12px;
 }
 
-/* =========================
-   INPUT AREA (FIXÉ EN BAS)
-========================= */
+/* TYPING INDICATOR */
+.typing {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* POINTS ANIMÉS DU TYPING */
+.dot {
+    width: 6px;
+    height: 6px;
+    background: #888;
+    border-radius: 50%;
+    animation: blink 1.4s infinite both;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* ANIMATION DES POINTS */
+@keyframes blink {
+    0%, 80%, 100% {
+        opacity: 0.2;
+        transform: translateY(0);
+    }
+    40% {
+        opacity: 1;
+        transform: translateY(-3px);
+    }
+}
+
+/* ZONE INPUT */
 #input-area {
     display: flex;
-    gap: 10px;
-    padding: 12px;
-
+    gap: 8px;
+    padding: 10px;
     border-top: 1px solid #eee;
-    background: white;
-
-    position: sticky;
-    bottom: 0;
+    background: #fff;
+    align-items: center;
 }
 
-/* =========================
-   INPUT
-========================= */
+/* TEXTAREA (INPUT MESSAGE) */
 #user-input {
     flex: 1;
-    padding: 12px 14px;
+    padding: 8px 10px;
     border-radius: 10px;
     border: 1px solid #ddd;
     outline: none;
-    font-size: 14px;
-    transition: all 0.2s ease;
+    font-size: 13px;
+    font-family: inherit;
+    resize: none;
+    max-height: 100px;
+
+    /* transition propre uniquement sur la hauteur */
+    transition: height 0.15s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* focus propre */
+/* FOCUS INPUT */
 #user-input:focus {
     border-color: #007bff;
-    box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.12);
 }
 
-/* =========================
-   BUTTON
-========================= */
+/* BOUTON ENVOI */
 #send-btn {
-    padding: 10px 16px;
+    padding: 7px 12px;
     border: none;
+    border-radius: 10px;
     background-color: #111;
     color: white;
-    border-radius: 10px;
     cursor: pointer;
+    font-size: 13px;
     font-weight: 500;
-
     transition: all 0.2s ease;
 }
 
-/* hover button */
+/* HOVER BOUTON */
 #send-btn:hover {
     background-color: #333;
     transform: translateY(-1px);

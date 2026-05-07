@@ -1,65 +1,52 @@
+import { sendMessageAPI } from "./api.js";
+import { addMessage, setLoadingState, typeEffect, createTypingIndicator } from "./ui.js";
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const input = document.getElementById("user-input");
     const button = document.getElementById("send-btn");
     const messages = document.getElementById("messages");
 
-    function addMessage(text, type) {
-        const msg = document.createElement("div");
-        msg.classList.add("message", type);
-        msg.textContent = text;
-
-        messages.appendChild(msg);
-        messages.scrollTop = messages.scrollHeight;
+    // auto-resize
+    function autoResize() {
+        input.style.height = "auto";
+        input.style.height = Math.min(input.scrollHeight, 120) + "px";
     }
 
-    async function sendMessageToAPI(message) {
-        try {
-            const response = await fetch("/chat", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ message: message })
-            });
-
-            const data = await response.json();
-            return data.response;
-
-        } catch (error) {
-            console.error("Erreur API :", error);
-            return "Erreur serveur...";
-        }
-    }
+    input.addEventListener("input", autoResize);
 
     async function sendMessage() {
         const text = input.value.trim();
-
         if (!text) return;
 
-        // message utilisateur
-        addMessage(text, "user");
-
-        // message loading
-        const loadingMsg = document.createElement("div");
-        loadingMsg.classList.add("message", "bot");
-        loadingMsg.textContent = "Assistant est en train d’écrire...";
-        messages.appendChild(loadingMsg);
-        messages.scrollTop = messages.scrollHeight;
+        addMessage(text, "user", messages);
 
         input.value = "";
 
-        // appel API
-        const botResponse = await sendMessageToAPI(text);
+        // reset hauteur après envoi (IMPORTANT UX)
+        input.style.height = "auto";
 
-        loadingMsg.textContent = botResponse;
+        const loadingMsg = createTypingIndicator(messages);
+
+        setLoadingState(input, button, true);
+
+        const response = await sendMessageAPI(text);
+        const safeResponse = response || "Erreur : réponse vide";
+
+        typeEffect(loadingMsg, safeResponse, input, button);
     }
 
+    // click
     button.addEventListener("click", sendMessage);
 
-    input.addEventListener("keypress", (e) => {
-        if (e.key === "Enter") {
+    // enter + shift+enter
+    input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+            e.preventDefault();
             sendMessage();
+
+            // reset UX propre
+            input.style.height = "auto";
         }
     });
 
