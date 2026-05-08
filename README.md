@@ -153,7 +153,7 @@ Le frontend a été progressivement amélioré pour se rapprocher d’une expér
 ### 1. Cloner le projet
 
 ```bash
-git clone https://github.com/ton-repo/assistant-ia-dirigeants.git
+git clone https://github.com/Nathandev19/assistant-ia-dirigeants.git
 cd assistant-ia-dirigeants
 ```
 
