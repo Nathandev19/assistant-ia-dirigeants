@@ -45,9 +45,14 @@ export function typeEffect(element, text, input, button) {
             i++;
             setTimeout(type, 8);
         } else {
+
+            // fin de l’écriture
             input.disabled = false;
             button.disabled = false;
             input.focus();
+
+            // ajout du bouton copier
+            addCopyButton(element, text);
         }
 
         scrollToBottom(element.parentElement, false);
@@ -72,4 +77,27 @@ export function createTypingIndicator(messages) {
     scrollToBottom(messages, true);
 
     return el;
+}
+
+// bouton copier (nouveau)
+function addCopyButton(element, text) {
+
+    const btn = document.createElement("button");
+
+    btn.classList.add("copy-btn");
+
+    btn.textContent = "Copier";
+
+    btn.addEventListener("click", () => {
+        navigator.clipboard.writeText(text);
+
+        btn.textContent = "Copié !";
+
+        setTimeout(() => {
+            btn.textContent = "Copier";
+        }, 1200);
+    });
+
+    element.appendChild(document.createElement("br"));
+    element.appendChild(btn);
 }

@@ -16,9 +16,9 @@ Le système repose actuellement sur une intégration d’un modèle de langage v
 
 - Fournir un assistant IA capable de répondre à des questions stratégiques
 - Simuler un assistant décisionnel pour dirigeants
-- Développer une interface web type SaaS (style ChatGPT)
+- Développer une interface web type SaaS (style ChatGPT / Copilot)
 - Préparer l’intégration de documents internes (RAG)
-- Transformer le projet en **produit IA utilisable en entreprise**
+- Transformer le projet en produit IA utilisable en entreprise
 
 ---
 
@@ -26,42 +26,47 @@ Le système repose actuellement sur une intégration d’un modèle de langage v
 
 ### Backend (Flask)
 
-**Technologies :**
+### Technologies
+
 - Python
 - Flask
 - Hugging Face Router API
 - dotenv
 
-**Rôle :**
+### Rôle
+
 - gestion des routes API
 - communication avec le modèle IA
 - traitement des messages utilisateur
 - retour des réponses JSON
 
-**Endpoint principal :**
+### Endpoint principal
+
 - `/chat`
 
 ---
 
-### 💻 Frontend
+### Frontend
 
-**Technologies :**
+### Technologies
+
 - HTML
 - CSS
 - JavaScript (modularisé)
 
-**Rôle :**
+### Rôle
+
 - interface utilisateur type SaaS
 - envoi des messages vers `/chat`
 - affichage dynamique des réponses
-- UX type ChatGPT (typing effect, scroll intelligent, auto-resize textarea)
+- UX moderne inspirée de ChatGPT / Copilot
 
 ---
 
 ## 4. Modèle IA utilisé
 
 - Hugging Face Router API
-- Modèle : `Llama 3 Instruct (meta-llama/Llama-3.1-8B-Instruct)`
+- Modèle : `meta-llama/Llama-3.1-8B-Instruct`
 
 Ce modèle permet de générer des réponses conversationnelles adaptées à un assistant professionnel.
 
@@ -118,15 +123,22 @@ assistant-ia-dirigeants/
 
 ## 7. Frontend (UX améliorée)
 
-Le frontend a été progressivement amélioré pour se rapprocher d’une expérience SaaS moderne :
+Le frontend a été progressivement amélioré pour se rapprocher d’une expérience SaaS moderne.
 
-* interface de chat type ChatGPT
+### Fonctionnalités UX ajoutées
+
+* interface de chat type ChatGPT / Copilot
 * messages utilisateur / assistant dynamiques
 * animation de réponse (typing effect)
 * indicateur de chargement animé (3 points)
-* textarea avec **auto-resize dynamique**
-* scroll intelligent (UX fluide)
-* architecture JS modularisée (`ui.js`, `api.js`)
+* textarea avec auto-resize dynamique
+* scroll intelligent
+* responsive mobile / tablette
+* architecture JS modularisée (`ui.js`, `api.js`, `chat.js`)
+* bouton copier les réponses
+* système d’upload de documents (frontend)
+* preview des fichiers uploadés
+* suppression de fichier avant envoi
 
 ---
 
@@ -141,10 +153,12 @@ Le frontend a été progressivement amélioré pour se rapprocher d’une expér
 
 ### Frontend
 
-* chat fonctionnel
+* chat conversationnel fonctionnel
 * UX fluide type SaaS
 * communication frontend ↔ backend
 * animations et feedback utilisateur
+* upload de fichiers côté frontend
+* responsive design
 
 ---
 
@@ -206,8 +220,11 @@ python app.py
 ### Frontend
 
 * chat opérationnel
-* UX améliorée (typing, scroll, auto-resize)
-* modularisation JS en cours
+* UX moderne et responsive
+* auto-resize textarea optimisé
+* modularisation JavaScript
+* système upload frontend ajouté
+* interface SaaS améliorée
 
 ---
 
@@ -217,13 +234,17 @@ python app.py
 
 * amélioration du prompt système
 * ajout mémoire conversationnelle
+* endpoint `/upload`
+* extraction PDF/TXT
 * intégration RAG (documents internes)
 
 ### Frontend
 
 * amélioration UX globale
-* upload de documents (`upload.js`)
-* interface plus SaaS
+* polish interface SaaS
+* historique de conversations
+* sidebar future
+* dark mode éventuel
 
 ---
 
@@ -233,5 +254,16 @@ Le projet est actuellement en phase :
 
 > MVP fonctionnel avec assistant IA connecté
 
-La prochaine étape vise à transformer ce MVP en **assistant IA d’entreprise enrichi par documents internes (RAG)**.
+Le frontend dispose désormais :
+
+* d’une interface moderne
+* d’une UX avancée
+* d’un système d’upload frontend
+* d’un responsive propre
+* d’une architecture JS modulaire
+
+La prochaine étape vise à transformer ce MVP en :
+
+> assistant IA d’entreprise enrichi par documents internes (RAG)
+
 
