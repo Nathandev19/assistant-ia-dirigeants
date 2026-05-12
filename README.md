@@ -117,7 +117,7 @@ assistant-ia-dirigeants/
 
 ├── tests/
 └── README.md
-````
+```
 
 ---
 
@@ -127,18 +127,21 @@ Le frontend a été progressivement amélioré pour se rapprocher d’une expér
 
 ### Fonctionnalités UX ajoutées
 
-* interface de chat type ChatGPT / Copilot
-* messages utilisateur / assistant dynamiques
-* animation de réponse (typing effect)
-* indicateur de chargement animé (3 points)
-* textarea avec auto-resize dynamique
-* scroll intelligent
-* responsive mobile / tablette
-* architecture JS modularisée (`ui.js`, `api.js`, `chat.js`)
-* bouton copier les réponses
-* système d’upload de documents (frontend)
-* preview des fichiers uploadés
-* suppression de fichier avant envoi
+- interface de chat type ChatGPT / Copilot
+- redesign UI plus moderne et professionnelle
+- messages utilisateur / assistant dynamiques
+- animation de réponse (typing effect)
+- indicateur de chargement animé (3 points)
+- textarea avec auto-resize dynamique
+- scroll intelligent
+- responsive mobile / tablette
+- amélioration du layout global et du centrage UX
+- architecture JS modularisée (`ui.js`, `api.js`, `chat.js`, `upload.js`)
+- bouton copier les réponses IA
+- système d’upload de documents côté frontend
+- sélection de fichiers depuis l’interface
+- preview des fichiers uploadés
+- suppression de fichier avant envoi
 
 ---
 
@@ -146,19 +149,21 @@ Le frontend a été progressivement amélioré pour se rapprocher d’une expér
 
 ### Backend
 
-* API `/chat` fonctionnelle
-* intégration Hugging Face
-* génération de réponses IA
-* gestion des erreurs
+- API `/chat` fonctionnelle
+- intégration Hugging Face
+- génération de réponses IA
+- gestion des erreurs
 
 ### Frontend
 
-* chat conversationnel fonctionnel
-* UX fluide type SaaS
-* communication frontend ↔ backend
-* animations et feedback utilisateur
-* upload de fichiers côté frontend
-* responsive design
+- chat conversationnel fonctionnel
+- UX fluide type SaaS
+- communication frontend ↔ backend
+- animations et feedback utilisateur
+- responsive design mobile/tablette
+- système upload frontend
+- preview et suppression des fichiers
+- copie rapide des réponses IA
 
 ---
 
@@ -200,12 +205,12 @@ python app.py
 
 ## 10. Répartition du travail
 
-| Membre        | Rôle            | Responsabilité                          |
-| ------------- | --------------- | --------------------------------------- |
-| Nathan        | Backend / IA    | API, LLM, architecture                  |
-| Trésor        | Frontend / UX   | UI, intégration, expérience utilisateur |
-| Pierre-Thyrel | Données & tests | datasets, évaluation                    |
-| Lina          | Documentation   | rapport, soutenance                     |
+| Membre | Rôle | Responsabilité |
+|---|---|---|
+| Nathan | Backend / IA | API, LLM, architecture |
+| Trésor | Frontend / UX | UI, intégration, expérience utilisateur |
+| Pierre-Thyrel | Données & tests | datasets, évaluation |
+| Lina | Documentation | rapport, soutenance |
 
 ---
 
@@ -213,18 +218,22 @@ python app.py
 
 ### Backend
 
-* API fonctionnelle
-* intégration IA active
-* structure propre et scalable
+- API fonctionnelle
+- intégration IA active
+- structure propre et scalable
 
 ### Frontend
 
-* chat opérationnel
-* UX moderne et responsive
-* auto-resize textarea optimisé
-* modularisation JavaScript
-* système upload frontend ajouté
-* interface SaaS améliorée
+- chat opérationnel
+- UX moderne et responsive
+- redesign inspiré de ChatGPT / Copilot
+- auto-resize textarea optimisé
+- modularisation JavaScript
+- système upload frontend ajouté
+- preview et suppression de fichiers
+- bouton copier les réponses
+- interface SaaS améliorée
+- responsive mobile/tablette
 
 ---
 
@@ -232,19 +241,20 @@ python app.py
 
 ### Backend
 
-* amélioration du prompt système
-* ajout mémoire conversationnelle
-* endpoint `/upload`
-* extraction PDF/TXT
-* intégration RAG (documents internes)
+- amélioration du prompt système
+- ajout mémoire conversationnelle
+- endpoint `/upload`
+- extraction PDF/TXT
+- intégration RAG (documents internes)
 
 ### Frontend
 
-* amélioration UX globale
-* polish interface SaaS
-* historique de conversations
-* sidebar future
-* dark mode éventuel
+- amélioration UX globale
+- polish interface SaaS
+- historique de conversations
+- sidebar future
+- dark mode éventuel
+- connexion upload frontend ↔ backend
 
 ---
 
@@ -256,14 +266,12 @@ Le projet est actuellement en phase :
 
 Le frontend dispose désormais :
 
-* d’une interface moderne
-* d’une UX avancée
-* d’un système d’upload frontend
-* d’un responsive propre
-* d’une architecture JS modulaire
+- d’une interface moderne inspirée de ChatGPT / Copilot
+- d’une UX responsive et fluide
+- d’un système d’upload frontend
+- d’une architecture JavaScript modulaire
+- d’un système de copie rapide des réponses IA
 
 La prochaine étape vise à transformer ce MVP en :
 
 > assistant IA d’entreprise enrichi par documents internes (RAG)
-
-
