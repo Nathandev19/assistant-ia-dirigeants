@@ -154,16 +154,13 @@ Le frontend a été progressivement amélioré pour se rapprocher d’une expér
 - génération de réponses IA
 - gestion des erreurs
 
-### Frontend
+### Améliorations futures Frontend
 
-- chat conversationnel fonctionnel
-- UX fluide type SaaS
-- communication frontend ↔ backend
-- animations et feedback utilisateur
-- responsive design mobile/tablette
-- système upload frontend
-- preview et suppression des fichiers
-- copie rapide des réponses IA
+- historique de conversations
+- sidebar pour navigation entre chats
+- dark mode
+- connexion upload frontend ↔ backend (Flask)
+- amélioration UX avancée (micro-interactions, animations)
 
 ---
 
